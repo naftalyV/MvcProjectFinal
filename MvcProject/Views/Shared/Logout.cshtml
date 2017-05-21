@@ -1,0 +1,25 @@
+﻿<br />
+<div class="form-horizontal">
+    @{var time = DateTime.Now.Hour;
+        if (time > 6 && time < 12)
+        {
+            <h4>בוקר טוב @User.Identity.Name</h4>
+        }
+        else if (time >= 12 && time < 17)
+        {
+            <h4>צהריים טובים @User.Identity.Name</h4>
+        }
+        else if (time >= 17 || time < 6)
+        {
+            <h4>ערב טוב @User.Identity.Name</h4>
+        }
+
+
+    }
+
+
+    @using (Html.BeginForm("Logout", "User"))
+    {
+        <input type="submit" value="יציאה" />
+    }
+</div>

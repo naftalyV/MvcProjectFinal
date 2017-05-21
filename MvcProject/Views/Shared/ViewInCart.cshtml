@@ -1,0 +1,12 @@
+﻿
+@model MvcProject.Models.Product
+
+<div>
+    @Html.CheckBoxFor(x => x.IsInCart, new { dataid = Model.Id, @class = "checkboxes" })
+
+
+    @Html.ActionLink(@Model.Title, "MoreDedails", "Home", new { id = Model.Id }, "")
+    <span>מחיר: @Model.Price </span>$
+    <br />
+
+</div>

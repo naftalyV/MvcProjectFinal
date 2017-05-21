@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @{
+        ViewBag.Title = "Index";
+    }
+
+
+    <title>Buy For U Stor</title>
+    <link href="~/Content/MyStyle1.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header navbar-right">
+
+
+                @if (User.Identity.IsAuthenticated)
+                {
+
+                    @Html.ActionLink("פרסום מודעה", "SubmitData", "Product", new { area = "" }, new { @class = "navbar-brand" })
+
+                }
+                @Html.ActionLink("סל קניות", "Cart", "ShoppingCart", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("אודותינו", "About", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("רישום פרטים אישים", "EditUser", "User", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("דף הבית", "HomePage", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <img height="50" src="https://lh3.googleusercontent.com/9_LPKAMSVxYJiW8oc1F00YOC_84Vut1L-ftzAc2ukC5Bq4kvlqoI1ngQAak2O2EM61cDYw=s170" />
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-default col-md-3">
+        <div class="panel-heading" style="margin-left: 0px ;height:850px; ">
+            <div >
+                @if (User.Identity.IsAuthenticated)
+            {
+                    @Html.Partial("Logout")
+
+                }
+                else
+                {
+
+                    @Html.Partial("Login", new MvcProject.Models.User())
+                }
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9">
+        <div class="container body-content">
+            @RenderBody()
+
+            <hr />
+        </div>
+        <footer>
+            @*<p>&copy; @DateTime.Now.Year - My Naftaly Application</p>*@<p></p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+</body>
+</html>

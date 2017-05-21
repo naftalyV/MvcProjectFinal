@@ -1,0 +1,34 @@
+﻿@model List<MvcProject.Models.Product>
+
+<h2> דף הבית</h2>
+@ViewBag.Massege
+<div>@Html.ActionLink("מיין לפי תאריך", "OrderByDate", "Home")
+</div>
+@Html.ActionLink("מיין לפי כותרת", "OrderByTitle", "Home")
+@{
+    <table>
+
+        @{
+
+           var itemInRow = 4;
+            if (Model != null)
+            {
+                var numOfItems = Model.Count();
+
+
+                for (int i = 0, p = 0; i < numOfItems; i++)
+                {
+                    <tr>
+                        @for (int j = 0; j < itemInRow && p < numOfItems; p++, j++)
+                    {
+                            <td>
+                                @Html.Partial("ShowInHomePage", Model[p])
+                            </td>
+                        }
+                    </tr>
+                }
+            }
+        }
+    </table>
+
+}
