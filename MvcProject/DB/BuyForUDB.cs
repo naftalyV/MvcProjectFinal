@@ -9,7 +9,7 @@ namespace MvcProject
     {
         
         public BuyForUDB()
-            : base("name=BuyForUDB")
+            : base("BuyForUDB")
         {
             Database.CreateIfNotExists();
            // Database.SetInitializer(new BuyForUDbInitializer());
